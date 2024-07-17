@@ -10,13 +10,13 @@ export const GET: RequestHandler = async ({ request, url }) => {
   const oauth2 = create()
 
   try {
-    const { token } = await oauth2.getToken({
+    const accessToken = await oauth2.getToken({
       code,
-      redirect_uri: `https://${HOST}/api/callback`,
+      redirect_uri: `${HOST}/api/callback`,
       scope: `repo,user`
     })
   
-    throw redirect(302, `/admin?token=${token.access_token}&provider=github`);
+    return redirect(302, `${HOST}/admin?token=${accessToken}&provider=github`);
   } catch (e: any) {
     return json({ error: 'Authentication failed', details: e }, { status: 500 });
   }
