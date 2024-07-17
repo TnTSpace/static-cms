@@ -2,7 +2,7 @@ import { redirect } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 import { create } from '../lib/oauth2';
 
-
+ 
 const randomString = () => crypto.randomUUID()
 
 export const GET: RequestHandler = async ({ request }) => {
