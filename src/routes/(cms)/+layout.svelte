@@ -7,8 +7,11 @@
 		CMS.init({
 			config: {
 				backend: {
-					name: 'git-gateway',
-					branch: 'master'
+					name: 'github',
+					repo: 'TnTSpace/static-cms',
+					branch: 'master',
+					base_url: 'https://static-cms.vercel.app/',
+					auth_endpoint: 'api/auth'
 				},
 				publish_mode: 'editorial_workflow',
 				media_folder: 'static/images/uploads',
