@@ -16,7 +16,7 @@ export const GET: RequestHandler = async ({ request, url }) => {
       scope: `repo,user`
     })
   
-    throw redirect(302, `/admin?token=${token.access_token}&provider=github`);
+    throw redirect(302, `/admin?token=${token}&provider=github`);
   } catch (e: any) {
     return json({ error: 'Authentication failed', details: e }, { status: 500 });
   }
