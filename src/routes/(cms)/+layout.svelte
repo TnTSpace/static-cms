@@ -12,10 +12,10 @@
 					branch: 'master',
 					base_url: 'https://static-cms.vercel.app',
 					auth_endpoint: 'api/auth',
-					auth_scope: 'repo'
+					auth_scope: 'repo',
 				},
 				publish_mode: 'editorial_workflow',
-				media_folder: 'static/images/uploads',
+				media_folder: '/static/images/uploads',
 				public_folder: '/images/uploads',
 				collections: [
 					{
