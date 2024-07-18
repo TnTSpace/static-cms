@@ -26,8 +26,3 @@
     }
   });
 </script>
-
-<div>
-  <h1>Admin Page</h1>
-  <p>Processing authentication...</p>
-</div>
