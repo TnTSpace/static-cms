@@ -12,7 +12,7 @@ export const GET: RequestHandler = async ({ request, url }) => {
   try {
     const { token } = await oauth2.getToken({
       code,
-      redirect_uri: `${HOST}/api/callback`,
+      redirect_uri: `https://static-cms.vercel.app/api/callback`,
       scope: `repo,user`
     })
 

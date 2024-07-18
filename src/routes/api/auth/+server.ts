@@ -12,7 +12,7 @@ export const GET: RequestHandler = async ({ request }) => {
   const oauth2 = create()
 
   const authorizationUri = oauth2.authorizeURL({
-    redirect_uri: `${HOST}/api/callback`,
+    redirect_uri: `https://static-cms.vercel.app/api/callback`,
     scope: `repo,user`,
     state: randomString()
   })
