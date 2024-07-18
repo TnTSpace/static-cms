@@ -15,6 +15,8 @@ export const GET: RequestHandler = async ({ request, url }) => {
       redirect_uri: `${HOST}/api/callback`,
       scope: `repo,user`
     })
+
+    console.log(JSON.stringify(accessToken))
   
     return redirect(302, `${HOST}/admin?token=${accessToken}&provider=github`);
   } catch (e: any) {
