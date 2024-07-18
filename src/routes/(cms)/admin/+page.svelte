@@ -7,7 +7,7 @@
 
   $: {
     const params = new URLSearchParams(window.location.search);
-    token = params.get('token') || '';
+    token = params.get('access_token') || '';
     provider = params.get('provider') || '';
   }
 
