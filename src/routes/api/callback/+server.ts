@@ -16,9 +16,9 @@ export const GET: RequestHandler = async ({ request, url }) => {
       scope: `repo,user`
     })
 
-    console.log(JSON.stringify(token))
+    console.log(JSON.stringify(token.access_token))
   
-    return redirect(302, `${HOST}/admin?token=${token}&provider=github`);
+    return redirect(302, `https://static-cms.vercel.app/admin?token=${token.access_token}&provider=github`);
   } catch (e: any) {
     return json({ error: 'Authentication failed', details: e }, { status: 500 });
   }
