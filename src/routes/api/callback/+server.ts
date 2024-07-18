@@ -11,7 +11,7 @@ export const GET: RequestHandler = async ({ request, url }) => {
     const { token } = await oauth2.getToken({
       code,
       redirect_uri: `https://static-cms.vercel.app/api/callback`,
-      scope: `repo`
+      scope: `repo`,
     })
 
     console.log(JSON.stringify(token.access_token))
