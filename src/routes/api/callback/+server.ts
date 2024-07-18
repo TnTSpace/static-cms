@@ -10,15 +10,15 @@ export const GET: RequestHandler = async ({ request, url }) => {
   const oauth2 = create()
 
   try {
-    const accessToken = await oauth2.getToken({
+    const { token } = await oauth2.getToken({
       code,
       redirect_uri: `${HOST}/api/callback`,
       scope: `repo,user`
     })
 
-    console.log(JSON.stringify(accessToken))
+    console.log(JSON.stringify(token))
   
-    return redirect(302, `${HOST}/admin?token=${accessToken}&provider=github`);
+    return redirect(302, `${HOST}/admin?token=${token}&provider=github`);
   } catch (e: any) {
     return json({ error: 'Authentication failed', details: e }, { status: 500 });
   }
