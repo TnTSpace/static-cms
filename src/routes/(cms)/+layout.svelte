@@ -9,7 +9,7 @@
 				backend: {
 					name: 'github',
 					repo: 'TnTSpace/static-cms',
-					branch: 'master',
+					branch: 'main',
 					base_url: 'https://static-cms.vercel.app',
 					auth_endpoint: 'api/auth'
 				},
