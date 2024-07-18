@@ -17,20 +17,4 @@ const create = (): AuthorizationCode => {
   return new AuthorizationCode(config);
 };
 
-const renderBody = (status: string, content: Record<string, any>): string => `
-<script>
-  const receiveMessage = (message) => {
-    window.opener.postMessage(
-      'authorization:github:${status}:${JSON.stringify(content)}',
-      message.origin
-    );
-
-    window.removeEventListener("message", receiveMessage, false);
-  }
-  window.addEventListener("message", receiveMessage, false);
-  
-  window.opener.postMessage("authorizing:github", "*");
-</script>
-`;
-
-export { create, renderBody };
+export { create };

@@ -1,13 +1,11 @@
 import { redirect } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
-import { create } from '../lib/oauth2';
-import { HOST } from '$env/static/private';
+import { create } from '../lib/oauth2'; 
 
  
 const randomString = () => crypto.randomUUID()
 
 export const GET: RequestHandler = async ({ request }) => {
-  // const host = request.headers.get('host') as string
 
   const oauth2 = create()
 

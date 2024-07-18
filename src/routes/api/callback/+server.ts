@@ -1,12 +1,9 @@
 import { json, redirect } from '@sveltejs/kit';
-import { create, renderBody } from '../lib/oauth2';
-import type { RequestHandler } from './$types';
-import { HOST } from '$env/static/private';
+import { create } from '../lib/oauth2';
+import type { RequestHandler } from './$types'; 
 
 export const GET: RequestHandler = async ({ request, url }) => {
   const code = url.searchParams.get('code') as string
-  // const host = request.headers.get('host')
-
   const oauth2 = create()
 
   try {
@@ -18,7 +15,7 @@ export const GET: RequestHandler = async ({ request, url }) => {
 
     console.log(JSON.stringify(token.access_token))
   
-    return redirect(302, `https://static-cms.vercel.app/admin?token=${token.access_token}&provider=github`);
+    return redirect(302, `https://static-cms.vercel.app/admin?access_token=${token.access_token}&provider=github`);
   } catch (e: any) {
     return json({ error: 'Authentication failed', details: e }, { status: 500 });
   }
