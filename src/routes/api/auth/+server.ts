@@ -15,7 +15,10 @@ export const GET: RequestHandler = async ({ request }) => {
     state: randomString()
   })
 
-  redirect(301, authorizationUri)
-
-  return new Response();
+  return new Response('', {
+    status: 301,
+    headers: {
+      Location: authorizationUri
+    }
+  });
 };

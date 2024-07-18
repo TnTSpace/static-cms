@@ -1,6 +1,7 @@
 import { json, redirect } from '@sveltejs/kit';
 import { create } from '../lib/oauth2';
 import type { RequestHandler } from './$types'; 
+import { renderBody } from '$lib/oauth2';
 
 export const GET: RequestHandler = async ({ request, url }) => {
   const code = url.searchParams.get('code') as string
@@ -15,8 +16,11 @@ export const GET: RequestHandler = async ({ request, url }) => {
 
     console.log(JSON.stringify(token.access_token))
   
-    return redirect(302, `https://static-cms.vercel.app/api/callback/github?access_token=${token.access_token}&provider=github`);
-  } catch (e: any) {
-    return json({ error: 'Authentication failed', details: e }, { status: 500 });
+    return new Response(renderBody('success', {
+      token: token.access_token,
+      provider: 'github'
+    }), { headers: {'Content-Type': 'text/html'} })
+  } catch (error: any) {
+    return new Response(renderBody('error', error), { headers: { 'Content-Type': 'text/html' } });
   }
 };
