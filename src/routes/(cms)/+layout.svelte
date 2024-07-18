@@ -10,7 +10,7 @@
 					name: 'github',
 					repo: 'TnTSpace/static-cms',
 					branch: 'master',
-					base_url: 'https://static-cms.vercel.app/',
+					base_url: 'https://static-cms.vercel.app',
 					auth_endpoint: 'api/auth'
 				},
 				publish_mode: 'editorial_workflow',
