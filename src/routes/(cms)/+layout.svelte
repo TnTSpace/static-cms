@@ -20,7 +20,7 @@
 					{
 						name: 'blog', // Used in routes, e.g., /admin/collections/blog
 						label: 'Blog', // Used in the UI
-						folder: '_posts/blog', // The path to the folder where the documents are stored
+						folder: 'src/content/blog', // The path to the folder where the documents are stored
 						create: true, // Allow users to create new documents in this collection
 						slug: '{{year}}-{{month}}-{{day}}-{{slug}}', // Filename template, e.g., yyyy-MM-dd-title.md
 						fields: [
