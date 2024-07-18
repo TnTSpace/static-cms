@@ -6,7 +6,7 @@
 	onMount(async () => {
 		CMS.init({
 			config: {
-				backend: {
+				backend: { 
 					name: 'github',
 					repo: 'TnTSpace/static-cms',
 					branch: 'master',
